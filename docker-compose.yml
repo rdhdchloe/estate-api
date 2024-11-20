@@ -1,0 +1,17 @@
+services:
+  api:
+    container_name: estate-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run start:dev
+    networks:
+      - estate-network
+
+networks:
+  estate-network:
